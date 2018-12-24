@@ -12,12 +12,12 @@ Initializing Repository
 
 Repo initialization:
 
-    $ repo init -u https://github.com/AICP/platform_manifest.git -b n7.1
+    $ repo init -u https://github.com/manishjvora/AICP_platform_manifest.git -b n7.1 --depth=1 --groups=all,-darwin,-x86,-mips,-exynos5
 
 
 sync repo :
 
-    $ repo sync
+    $ repo sync -c -f --force-sync --no-clone-bundle
 
 Some info on how to customize your sync:
 

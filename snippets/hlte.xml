@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <remote  name="mv"
+	   fetch="https://github.com/manishjvora"
+	   revision="n7.1" />
+
+<!-- Device, Kernel, Vendor, -->
+  <project name="LineageOS/android_device_samsung_hlte" path="device/samsung/hlte" remote="github" revision="cm-14.1" />
+  <project name="LineageOS/android_device_samsung_hlte-common" path="device/samsung/hlte-common" remote="github" revision="cm-14.1" />
+  <project name="LineageOS/android_device_samsung_msm8974-common" path="device/samsung/msm8974-common" remote="github" revision="cm-14.1" />
+  <project name="LineageOS/android_device_samsung_qcom-common" path="device/samsung/qcom-common" remote="github" revision="cm-14.1" />
+  <project name="LineageOS/android_device_qcom_common" path="device/qcom/common" remote="github" revision="cm-14.1" />
+  <project name="LineageOS/android_hardware_samsung" path="hardware/samsung" remote="github" revision="cm-14.1" />
+  <project name="LineageOS/android_kernel_samsung_msm8974" path="kernel/samsung/msm8974" remote="github" revision="cm-14.1" />
+  <project name="TheMuppets/proprietary_vendor_samsung" path="vendor/samsung" remote="github" revision="cm-14.1" />
+
+<!-- Lineage Stuff -->
+  <project name="LineageOS/android_external_stlport" path="external/stlport" remote="github" revision="cm-14.1" />
+  <project name="LineageOS/android_packages_apps_FlipFlap" path="packages/apps/FlipFlap" remote="github" revision="cm-14.1" />
+  <project name="LineageOS/android_packages_resources_devicesettings" path="packages/resources/devicesettings" remote="github" revision="cm-14.1" />
+
+<!-- Uber TC -->
+  <remove-project name="platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" />
+  <remove-project name="LineageOS/android_prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9" />
+  <project name="manishjvora/arm" path="prebuilts/gcc/linux-x86/" remote="github" revision="master" />
+
+<!-- Replace AICP stuff with updated stuff -->
+  <!--Remove AICP stuff -->
+  <remove-project name="AICP/build" />
+  <remove-project name="AICP/frameworks_av" />
+  <remove-project name="AICP/frameworks_base" />
+  <remove-project name="AICP/frameworks_native" />
+  <remove-project name="AICP/packages_apps_PackageInstaller" />
+  <remove-project name="AICP/packages_apps_Settings" />
+  <remove-project name="AICP/packages_providers_MediaProvider" />
+  <remove-project name="AICP/packages_services_Telephony" />
+  <remove-project name="AICP/system_core" />
+  <remove-project name="AICP/vendor_aicp" />
+
+  <!--Add stuff from my git -->  
+  <project path="build" name="AICP_build" groups="pdk,tradefed" remote="mv" >
+    <copyfile src="core/root.mk" dest="Makefile" />
+  </project>
+  <project path="frameworks/av" name="AICP_frameworks_av" groups="pdk" remote="mv" />
+  <project path="frameworks/base" name="AICP_frameworks_base" groups="pdk-cw-fs,pdk-fs" remote="mv" />
+  <project path="frameworks/native" name="AICP_frameworks_native" groups="pdk" remote="mv" />
+  <project path="packages/apps/PackageInstaller" name="AICP_packages_apps_PackageInstaller" groups="pdk-fs" remote="mv" />
+  <project path="packages/apps/Settings" name="AICP_packages_apps_Settings" groups="pdk-fs" remote="mv" />
+  <project path="packages/providers/MediaProvider" name="AICP_packages_providers_MediaProvider" groups="pdk-cw-fs,pdk-fs" remote="mv" />
+  <project path="packages/services/Telephony" name="AICP_packages_services_Telephony" groups="pdk-cw-fs,pdk-fs" remote="mv" />
+  <project path="system/core" name="AICP_system_core" groups="pdk" remote="mv" />
+  <project path="vendor/aicp" name="AICP_vendor_aicp" remote="mv" />
+
+</manifest>
